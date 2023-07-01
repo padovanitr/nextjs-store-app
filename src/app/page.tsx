@@ -2,13 +2,14 @@
 import Header from '@/components/Header/page'
 import Navbar from '@/components/Navbar/page'
 import { useState } from 'react'
+import { AppContainer } from './page.style'
 
 export default function Home() {
   const [navbarOpen, setNavbarOpen] = useState(false)
   return (
-    <div>
+    <AppContainer>
       <Header openNavbar={() => setNavbarOpen(true)} />
       <Navbar open={navbarOpen} onClose={() => setNavbarOpen(false)} />
-    </div>
+    </AppContainer>
   )
 }
