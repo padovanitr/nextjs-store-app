@@ -1,14 +1,9 @@
-import { storeColors } from '@/utils/colors'
 import { styled } from 'styled-components'
 
 export const AppContainer = styled.div`
-  background-color: ${storeColors.white};
-  height: 100vh;
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
+  margin: 0px;
+  padding: 0px;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  height: 100vh;
 `

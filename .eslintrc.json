@@ -1,3 +1,92 @@
 {
-  "extends": ["next/core-web-vitals", "@rocketseat/eslint-config/react"]
+  "extends": ["next/core-web-vitals", "plugin:@typescript-eslint/recommended"], 
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": ["./tsconfig.json"]
+  },
+  "plugins": ["react", "@typescript-eslint"],
+  "rules": {
+    "object-curly-spacing": ["warn", "always"],
+    "curly": ["error", "all"],
+    "no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "destructuredArrayIgnorePattern": "^_",
+        "args": "none"
+      }
+    ],
+    "@typescript-eslint/semi": ["off"],
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "destructuredArrayIgnorePattern": "^_",
+        "args": "none"
+      }
+    ],
+    "@typescript-eslint/no-explicit-any": [
+      "error",
+      {
+        "ignoreRestArgs": true,
+        "fixToUnknown": true
+      }
+    ],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "variable",
+        "format": ["camelCase", "PascalCase", "UPPER_CASE"],
+        "leadingUnderscore": "allow"
+      }
+    ],
+    "max-len": [
+      "warn",
+      {
+        "code": 100,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreComments": true
+      }
+    ],
+    "no-plusplus": [
+      "error",
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ],
+    "react/jsx-key": "error",
+    "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off",
+    "react/jsx-props-no-spreading": "off",
+    "import/prefer-default-export": "off",
+    "react/jsx-boolean-value": "off",
+    "react/prop-types": "off",
+    "react/no-unescaped-entities": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-wrap-multilines": "off",
+    "react/destructuring-assignment": "off",
+    "no-restricted-exports": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "no-underscore-dangle": [
+      "error",
+      {
+        // For using static-route-paths
+        "allow": ["_path"]
+      }
+    ]
+  }
 }

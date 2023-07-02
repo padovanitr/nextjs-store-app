@@ -17,6 +17,7 @@ import HamburguerIcon from '../../assets/icons/HamburguerIcon.svg'
 import CartIcon from '../../assets/icons/CartIcon.svg'
 import ProfileIcon from '../../assets/icons/ProfileIcon.svg'
 import Searchbar from '../Searchbar/page'
+import { HeaderTexts } from './header.utils'
 
 interface HeaderProps {
   openNavbar: () => void
@@ -26,7 +27,7 @@ export default function Header({ openNavbar }: HeaderProps) {
   return (
     <HeaderContainer>
       <TitleContainer>
-        <Title>StoreApp</Title>
+        <Title>{HeaderTexts.Title}</Title>
         <MenuButton onClick={openNavbar}>
           <Image
             priority
@@ -47,7 +48,7 @@ export default function Header({ openNavbar }: HeaderProps) {
             src={ProfileIcon}
             alt="Follow us on Twitter"
           />
-          <ProfileLabel>Signup/Login</ProfileLabel>
+          <ProfileLabel>{HeaderTexts.LoginSignUpButtonLabel}</ProfileLabel>
         </LoginIconButton>
         <IconButton>
           <CartImage

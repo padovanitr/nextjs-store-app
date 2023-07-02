@@ -10,15 +10,13 @@ export const TitleContainer = styled.div`
 
 export const HeaderContainer = styled.header`
   background-color: white;
-  height: 60px;
-  width: 100%;
   position: relative;
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: ${storeColors.white};
+  background-color: #FFFFFF;
   overflow-x: hidden;
-  padding: 10px 30px;
+  padding: 25px 40px;
   transition: all 0.5s ease;
   box-shadow: 0px 0px 8px rgba(46, 49, 146, 0.15);
   display: flex;
