@@ -1,5 +1,12 @@
 import { storeColors } from '@/utils/colors'
+import Image from 'next/image'
 import { styled } from 'styled-components'
+
+export const TitleContainer = styled.div`
+  display: flex;
+  gap: 30px;
+  align-items: center;
+`
 
 export const HeaderContainer = styled.header`
   background-color: white;
@@ -21,8 +28,49 @@ export const HeaderContainer = styled.header`
 
 export const MenuButton = styled.button`
   background-color: transparent;
-  height: fit-content;
+  height: 40px;
   width: fit-content;
   border: none;
   cursor: pointer;
+  margin-top: 5px;
+`
+
+export const IconButton = styled.button`
+  background-color: transparent;
+  height: 40px;
+  width: fit-content;
+  border: none;
+  cursor: pointer;
+`
+
+export const RightButtonsContainer = styled.div`
+  display: flex;
+  gap: 20px;
+  align-items: center;
+`
+
+export const LoginIconButton = styled(IconButton)`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+`
+
+export const ProfileImage = styled(Image)`
+  margin-top: 10px;
+`
+
+export const CartImage = styled(Image)`
+  margin-top: 5px;
+`
+
+export const ProfileLabel = styled.p`
+  font-size: 1rem;
+  color: ${storeColors.darkGrey};
+`
+
+export const Title = styled.p`
+  font-size: 2rem;
+  color: ${storeColors.black};
+  margin: 0;
+  font-weight: 600;
 `

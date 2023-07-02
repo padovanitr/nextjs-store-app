@@ -9,7 +9,7 @@ export const Form = styled.form`
   color: #555;
   display: flex;
   padding: 2px;
-  border: 1px solid ${storeColors.mediumGray};
+  border: 1px solid ${storeColors.lightBlack};
   border-radius: 8px;
   width: 500px;
 `
@@ -19,7 +19,7 @@ export const SearchInput = styled.input`
   background: transparent;
   margin: 0;
   padding: 9px 8px;
-  font-size: 14px;
+  font-size: 1rem;
   color: inherit;
   border: 1px solid transparent;
   border-radius: 8px;
