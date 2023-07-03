@@ -3,8 +3,8 @@ import Header from '@/components/Header/page'
 import Navbar from '@/components/Navbar/page'
 import { useState } from 'react'
 import { AppContainer, ShelfsWrapper } from './page.style'
-import Card from '@/components/Card/page'
 import Cart from '@/components/Cart/page'
+import Shelf from '@/components/Shelf/page'
 
 export default function Home() {
   const [navbarOpen, setNavbarOpen] = useState(false)
@@ -16,8 +16,9 @@ export default function Home() {
       <Navbar open={navbarOpen} onClose={() => setNavbarOpen(false)} />
       <Cart open={cartOpen} onClose={() => setCartOpen(false)} />
       <ShelfsWrapper>
-        <Card />
+        <Shelf />
       </ShelfsWrapper>
+      
     </AppContainer>
   )
 }

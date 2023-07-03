@@ -8,9 +8,9 @@ export const CardContainer = styled.div`
   flex-direction: column;
   box-shadow: 0 1px 3px rgba(0,0,0,.16);
   border-radius: 8px;
-  max-width: 192px;
   height: 355px;
   margin: 0;
+  width: 210px;
 `
 
 export const HeadSection = styled.div`

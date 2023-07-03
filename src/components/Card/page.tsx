@@ -1,13 +1,41 @@
-import { ButtonContainer, CardContainer, HeadSection, ImageDescription, StyledButton } from "./Card.style";
+import Image from 'next/image'
+import {
+  ButtonContainer,
+  CardContainer,
+  HeadSection,
+  ImageDescription,
+  StyledButton,
+} from './Card.style'
 
-export default function Card() {
+export interface CardProps {
+  id: number
+  title: string
+  price: number
+  description: string
+  category: string
+  image: string
+  rating: Rating
+}
+
+export interface Rating {
+  rate: number
+  count: number
+}
+
+export default function Card({
+  id,
+  title,
+  price,
+  description,
+  category,
+  image,
+  rating,
+}: CardProps) {
   return (
     <CardContainer>
-      <HeadSection>
-        text
-      </HeadSection>
+      <HeadSection>text</HeadSection>
       <ImageDescription>
-        image e text
+        <Image src={image} alt={title} />
       </ImageDescription>
       <ButtonContainer>
         <StyledButton>Buy</StyledButton>
