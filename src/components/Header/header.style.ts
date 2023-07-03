@@ -22,6 +22,8 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
+  height: 70px;
 `
 
 export const MenuButton = styled.button`

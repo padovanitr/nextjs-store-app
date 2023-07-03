@@ -33,9 +33,9 @@ export default function Card({
 }: CardProps) {
   return (
     <CardContainer>
-      <HeadSection>text</HeadSection>
+      <HeadSection></HeadSection>
       <ImageDescription>
-        <Image src={image} alt={title} />
+        <Image width={150} height={150} src={image} alt={title} />
       </ImageDescription>
       <ButtonContainer>
         <StyledButton>Buy</StyledButton>

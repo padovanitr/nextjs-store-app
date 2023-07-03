@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { AppContainer, ShelfsWrapper } from './page.style'
 import Cart from '@/components/Cart/page'
 import Shelf from '@/components/Shelf/page'
+import products from '../../products.json'
 
 export default function Home() {
   const [navbarOpen, setNavbarOpen] = useState(false)
@@ -16,7 +17,10 @@ export default function Home() {
       <Navbar open={navbarOpen} onClose={() => setNavbarOpen(false)} />
       <Cart open={cartOpen} onClose={() => setCartOpen(false)} />
       <ShelfsWrapper>
-        <Shelf />
+        <Shelf products={products} category="women's clothing" categoryLabel="Women" />
+        <Shelf products={products} category="men's clothing" categoryLabel="Men" />
+        <Shelf products={products} category="electronics" categoryLabel="Electronics" />
+        <Shelf products={products} category="jewelery" categoryLabel="Jewelery" />
       </ShelfsWrapper>
       
     </AppContainer>
