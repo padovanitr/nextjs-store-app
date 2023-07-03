@@ -1,4 +1,4 @@
-import { CardContainer, HeadSection, ImageDescription, StyledButton } from "./Card.style";
+import { ButtonContainer, CardContainer, HeadSection, ImageDescription, StyledButton } from "./Card.style";
 
 export default function Card() {
   return (
@@ -9,7 +9,9 @@ export default function Card() {
       <ImageDescription>
         image e text
       </ImageDescription>
-      <StyledButton>Buy</StyledButton>
+      <ButtonContainer>
+        <StyledButton>Buy</StyledButton>
+      </ButtonContainer>
     </CardContainer>
   )
 }

@@ -7,3 +7,7 @@ export const AppContainer = styled.div`
   flex-direction: column;
   height: 100vh;
 `
+
+export const ShelfsWrapper = styled.div`
+  padding: 30px 40px;
+`

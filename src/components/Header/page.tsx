@@ -21,9 +21,10 @@ import { HeaderTexts } from './header.utils'
 
 interface HeaderProps {
   openNavbar: () => void
+  openCart: () => void
 }
 
-export default function Header({ openNavbar }: HeaderProps) {
+export default function Header({ openNavbar, openCart }: HeaderProps) {
   return (
     <HeaderContainer>
       <TitleContainer>
@@ -50,7 +51,7 @@ export default function Header({ openNavbar }: HeaderProps) {
           />
           <ProfileLabel>{HeaderTexts.LoginSignUpButtonLabel}</ProfileLabel>
         </LoginIconButton>
-        <IconButton>
+        <IconButton onClick={openCart}>
           <CartImage
             priority
             height={35}
