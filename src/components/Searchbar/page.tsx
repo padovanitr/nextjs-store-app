@@ -14,7 +14,6 @@ export default function Searchbar() {
         <SearchInput type="search" placeholder="Search..." />
         <SearchButton type="submit">
           <Image
-            priority
             height={23}
             width={30}
             src={SearchIcon}

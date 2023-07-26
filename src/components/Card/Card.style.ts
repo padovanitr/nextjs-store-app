@@ -8,9 +8,9 @@ export const CardContainer = styled.div`
   flex-direction: column;
   box-shadow: 0 1px 3px rgba(0,0,0,.16);
   border-radius: 8px;
-  height: 355px;
+  height: 365px;
   margin: 0;
-  width: 210px;
+  width: 230px;
 `
 
 export const HeadSection = styled.div`
@@ -53,4 +53,28 @@ export const StyledButton = styled.button`
     background-color: ${storeColors.darkGrey};
     color: ${storeColors.white};
   }
+`
+
+export const ProductName = styled.p`
+  font-size: 1rem;
+  color: ${storeColors.darkGrey};
+  font-weight: 400;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-transform: lowercase;
+  color: #111;
+  padding: 5px 10px;
+`
+
+export const Price = styled.p`
+  font-size: 1.125rem;
+  color: ${storeColors.black};
+  font-weight: 500;
+  margin: 5px 0;
+  text-align: center;
 `

@@ -31,7 +31,6 @@ export default function Header({ openNavbar, openCart }: HeaderProps) {
         <Title>{HeaderTexts.Title}</Title>
         <MenuButton onClick={openNavbar}>
           <Image
-            priority
             height={40}
             width={40}
             src={HamburguerIcon}
@@ -43,7 +42,6 @@ export default function Header({ openNavbar, openCart }: HeaderProps) {
       <RightButtonsContainer>
         <LoginIconButton>
           <ProfileImage
-            priority
             height={45}
             width={43}
             src={ProfileIcon}
@@ -53,7 +51,6 @@ export default function Header({ openNavbar, openCart }: HeaderProps) {
         </LoginIconButton>
         <IconButton onClick={openCart}>
           <CartImage
-            priority
             height={35}
             width={35}
             src={CartIcon}

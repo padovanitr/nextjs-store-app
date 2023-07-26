@@ -20,9 +20,13 @@ export const Carousel = styled(motion.div)`
   overflow: hidden;
 `
 
-export const InnerCarousel = styled(motion.div)`
+export const InnerCarousel = styled(motion.div).withConfig({
+  shouldForwardProp: (prop) =>
+    !prop.startsWith('$'),
+})`
   display: flex;
-`
+`;
+
 
 export const CarouselItem = styled(motion.div)`
   min-height: 10rem;

@@ -5,7 +5,7 @@ import StyledComponentsRegistry from '@/lib/registry'
 
 const inter = Roboto({
   subsets: ['latin'],
-  weight: '500',
+  weight: '400',
 })
 
 export const metadata = {

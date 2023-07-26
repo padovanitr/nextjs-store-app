@@ -1,11 +1,16 @@
+'use client'
 import Image from 'next/image'
 import {
   ButtonContainer,
   CardContainer,
   HeadSection,
   ImageDescription,
+  Price,
+  ProductName,
   StyledButton,
 } from './Card.style'
+import formatCurrency from '@/utils/formatCurrency'
+import { useCart } from '../Cart/CartContext'
 
 export interface CardProps {
   id: number
@@ -31,14 +36,27 @@ export default function Card({
   image,
   rating,
 }: CardProps) {
+  const { dispatchCartState } = useCart()
+
+  const addProduct = () => {
+    dispatchCartState({
+      type: 'increase',
+      payload: {
+        productId: String(id)
+      }
+    })
+  }
+
   return (
     <CardContainer>
       <HeadSection></HeadSection>
       <ImageDescription>
         <Image width={150} height={150} src={image} alt={title} />
+        <ProductName>{title}</ProductName>
+        <Price>{formatCurrency(price)}</Price>
       </ImageDescription>
       <ButtonContainer>
-        <StyledButton>Buy</StyledButton>
+        <StyledButton onClick={addProduct}>Buy</StyledButton>
       </ButtonContainer>
     </CardContainer>
   )
