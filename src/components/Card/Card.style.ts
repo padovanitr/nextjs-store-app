@@ -48,6 +48,7 @@ export const StyledButton = styled.button`
   min-width: 120px;
   color: ${storeColors.darkGrey};
   transition: all 0.2s ease;
+  width: 200px;
 
   &:hover {
     background-color: ${storeColors.darkGrey};

@@ -11,6 +11,7 @@ import {
 } from './Card.style'
 import formatCurrency from '@/utils/formatCurrency'
 import { useCart } from '../Cart/CartContext'
+import { memo } from 'react'
 
 export interface CardProps {
   id: number
@@ -27,7 +28,7 @@ export interface Rating {
   count: number
 }
 
-export default function Card({
+const Card = ({
   id,
   title,
   price,
@@ -35,14 +36,17 @@ export default function Card({
   category,
   image,
   rating,
-}: CardProps) {
+}: CardProps) => {
   const { dispatchCartState } = useCart()
 
   const addProduct = () => {
     dispatchCartState({
-      type: 'increase',
+      type: 'add',
       payload: {
-        productId: String(id)
+        productId: String(id),
+        name: title,
+        price,
+        image,
       }
     })
   }
@@ -61,3 +65,5 @@ export default function Card({
     </CardContainer>
   )
 }
+
+export default memo(Card)

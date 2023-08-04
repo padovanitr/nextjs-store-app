@@ -5,15 +5,16 @@ export const cartReducer = (
   cart: typeof cartInitialState,
   action: CartAction
 ): typeof cartInitialState => {
-  const productId = action.payload.productId;
+  const { productId } = action.payload
 
   switch (action.type) {
-    case "increase":
+    case "add":
+      const { name, price, image } = action.payload
       const cartCopyToAdd = [...cart]
       const hasItem = cartCopyToAdd.find((item) => item.id === productId);
 
       if (!hasItem) {
-        return [...cartCopyToAdd, { id: productId, quantity: 1 }];
+        return [...cartCopyToAdd, { id: productId, quantity: 1, name, price, image  }];
       }
 
       const updatedCartAdded = cart.map((item) => {
