@@ -49,6 +49,7 @@ export const StyledButton = styled.button`
   color: ${storeColors.darkGrey};
   transition: all 0.2s ease;
   width: 200px;
+  height: 45px;
 
   &:hover {
     background-color: ${storeColors.darkGrey};
@@ -78,4 +79,33 @@ export const Price = styled.p`
   font-weight: 500;
   margin: 5px 0;
   text-align: center;
+`
+
+export const QuantityButtonsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 200px;
+  border: 1px solid ${storeColors.darkGrey};
+  border-radius: 8px;
+  height: 45px;
+`
+
+export const QuantityButton = styled.button`
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+`
+
+export const QuantityLabel = styled.p`
+  font-size: 1rem;
+  color: ${storeColors.darkGrey};
+  width: 90px;
+  display: flex;
+  justify-content: center;
+  border-right: 1px solid ${storeColors.darkGrey};
+  border-left: 1px solid ${storeColors.darkGrey};
+  margin: 0;
+  height: 100%;
+  align-items: center;
 `

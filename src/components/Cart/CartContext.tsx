@@ -1,5 +1,5 @@
 'use client'
-import { Dispatch, ReactNode, createContext, useContext, useReducer } from "react";
+import { Dispatch, ReactNode, createContext, useContext, useMemo, useReducer } from "react";
 import { CartAction, CartType, cartInitialState } from "./Cart.utils";
 import { cartReducer } from "./CartReducer";
 
@@ -16,9 +16,12 @@ export const CartContext = createContext<CartContextValue | undefined>(undefined
 
 export const CartProvider = ({ children }: CardProviderProps) => {
   const [cartState, dispatchCartState] = useReducer(cartReducer, cartInitialState)
+  console.log('cartState', cartState)
 
+  const memoizedValue = useMemo(() => {return { cartState, dispatchCartState }}, [cartState])
+  console.log('memoizedValue', memoizedValue)
   return (
-    <CartContext.Provider value={{ cartState, dispatchCartState }}>
+    <CartContext.Provider value={memoizedValue}>
       {children}
     </CartContext.Provider>
   )

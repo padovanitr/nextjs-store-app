@@ -7,11 +7,13 @@ import {
   ImageDescription,
   Price,
   ProductName,
+  QuantityButton,
+  QuantityButtonsContainer,
+  QuantityLabel,
   StyledButton,
 } from './Card.style'
 import formatCurrency from '@/utils/formatCurrency'
 import { useCart } from '../Cart/CartContext'
-import { memo } from 'react'
 
 export interface CardProps {
   id: number
@@ -28,7 +30,7 @@ export interface Rating {
   count: number
 }
 
-const Card = ({
+export default function Card ({
   id,
   title,
   price,
@@ -36,8 +38,9 @@ const Card = ({
   category,
   image,
   rating,
-}: CardProps) => {
-  const { dispatchCartState } = useCart()
+}: CardProps) {
+  const { cartState, dispatchCartState } = useCart()
+  const currentProduct = cartState.find((product) => product.id === String(id))
 
   const addProduct = () => {
     dispatchCartState({
@@ -51,6 +54,15 @@ const Card = ({
     })
   }
 
+  const decreaseProduct = () => {
+    dispatchCartState({
+      type: 'decrease',
+      payload: {
+        productId: String(id),
+      }
+    })
+  }
+
   return (
     <CardContainer>
       <HeadSection></HeadSection>
@@ -60,10 +72,16 @@ const Card = ({
         <Price>{formatCurrency(price)}</Price>
       </ImageDescription>
       <ButtonContainer>
-        <StyledButton onClick={addProduct}>Buy</StyledButton>
+        {currentProduct && currentProduct.quantity >= 1 ? (
+          <QuantityButtonsContainer>
+            <QuantityButton onClick={decreaseProduct}>-</QuantityButton>
+            <QuantityLabel>{currentProduct.quantity}</QuantityLabel>
+            <QuantityButton onClick={addProduct}>+</QuantityButton>
+          </QuantityButtonsContainer>
+        ) : (
+          <StyledButton onClick={addProduct}>Buy</StyledButton>
+        )}
       </ButtonContainer>
     </CardContainer>
   )
 }
-
-export default memo(Card)
