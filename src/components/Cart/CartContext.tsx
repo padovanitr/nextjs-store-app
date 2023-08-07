@@ -15,11 +15,14 @@ export type CartContextValue = {
 export const CartContext = createContext<CartContextValue | undefined>(undefined)
 
 export const CartProvider = ({ children }: CardProviderProps) => {
-  const [cartState, dispatchCartState] = useReducer(cartReducer, cartInitialState)
-  console.log('cartState', cartState)
+  const localstorageCart = localStorage.getItem('storeCart')
+  const savedCart = localstorageCart ? JSON.parse(localstorageCart) : null
+  const [cartState, dispatchCartState] = useReducer(cartReducer, savedCart || cartInitialState)
+
+  localStorage.setItem('storeCart', JSON.stringify(cartState))
 
   const memoizedValue = useMemo(() => {return { cartState, dispatchCartState }}, [cartState])
-  console.log('memoizedValue', memoizedValue)
+
   return (
     <CartContext.Provider value={memoizedValue}>
       {children}

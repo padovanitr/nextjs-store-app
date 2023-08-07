@@ -74,3 +74,19 @@ export const Title = styled.p`
   margin: 0;
   font-weight: 600;
 `
+
+export const StyledBadge = styled.span`
+  position: absolute;
+  background-color: ${storeColors.darkGrey};
+  border-radius: 50%;
+  color: ${storeColors.white};
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 1.2rem;
+  right: 2.3rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+`

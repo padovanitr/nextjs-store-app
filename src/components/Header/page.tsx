@@ -9,6 +9,7 @@ import {
   ProfileImage,
   ProfileLabel,
   RightButtonsContainer,
+  StyledBadge,
   Title,
   TitleContainer,
 } from './header.style'
@@ -18,6 +19,7 @@ import CartIcon from '../../assets/icons/CartIcon.svg'
 import ProfileIcon from '../../assets/icons/ProfileIcon.svg'
 import Searchbar from '../Searchbar/page'
 import { HeaderTexts } from './header.utils'
+import { useCart } from '../Cart/CartContext'
 
 interface HeaderProps {
   openNavbar: () => void
@@ -25,6 +27,8 @@ interface HeaderProps {
 }
 
 export default function Header({ openNavbar, openCart }: HeaderProps) {
+  const { cartState } = useCart()
+
   return (
     <HeaderContainer>
       <TitleContainer>
@@ -56,6 +60,7 @@ export default function Header({ openNavbar, openCart }: HeaderProps) {
             src={CartIcon}
             alt="Follow us on Twitter"
           />
+          <StyledBadge>{cartState ? cartState.length : 0}</StyledBadge>
         </IconButton>
       </RightButtonsContainer>
     </HeaderContainer>
