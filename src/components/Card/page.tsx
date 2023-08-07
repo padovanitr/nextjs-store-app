@@ -14,6 +14,8 @@ import {
 } from './Card.style'
 import formatCurrency from '@/utils/formatCurrency'
 import { useCart } from '../Cart/CartContext'
+import { ActionTypes } from '../Cart/Cart.utils'
+import { CardTexts } from './Card.utils'
 
 export interface CardProps {
   id: number
@@ -44,7 +46,7 @@ export default function Card ({
 
   const addProduct = () => {
     dispatchCartState({
-      type: 'add',
+      type: ActionTypes.ADD_ACTION,
       payload: {
         productId: String(id),
         name: title,
@@ -56,7 +58,7 @@ export default function Card ({
 
   const decreaseProduct = () => {
     dispatchCartState({
-      type: 'decrease',
+      type: ActionTypes.DECREASE_ACTION,
       payload: {
         productId: String(id),
       }
@@ -79,7 +81,7 @@ export default function Card ({
             <QuantityButton onClick={addProduct}>+</QuantityButton>
           </QuantityButtonsContainer>
         ) : (
-          <StyledButton onClick={addProduct}>Buy</StyledButton>
+          <StyledButton onClick={addProduct}>{CardTexts.BuyButtonLabel}</StyledButton>
         )}
       </ButtonContainer>
     </CardContainer>

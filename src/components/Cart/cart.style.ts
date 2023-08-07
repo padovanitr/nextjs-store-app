@@ -4,8 +4,7 @@ import { styled } from "styled-components";
 export const CartContainer = styled.div<{ $open?: boolean }>`
   background-color: white;
   height: 100%;
-  width: 300px;
-  max-width: 300px;
+  max-width: 380px;
   position: fixed;
   z-index: 2;
   top: 0;
@@ -15,7 +14,10 @@ export const CartContainer = styled.div<{ $open?: boolean }>`
   padding: 0;
   transition: all 0.5s ease;
   box-shadow: 0px 0px 8px rgba(46, 49, 146, 0.15);
-  transform: translateX(${({ $open }) => ($open ? '0px' : '320px')});
+  transform: translateX(${({ $open }) => ($open ? '0px' : '380px')});
+  display: flex;
+  flex-direction: column;
+  width: 99.9vw;
 `
 
 export const Backdrop = styled.div<{ $open?: boolean }>`
@@ -32,14 +34,13 @@ export const Backdrop = styled.div<{ $open?: boolean }>`
 `
 
 export const HeaderContent = styled.div`
-  width: 100%;
   background-color: ${storeColors.darkGrey};
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 45px;
-  max-width: 280px;
-  padding: 0 10px;
+  max-width: 350px;
+  padding: 5px 15px;
 `
 
 export const Title = styled.h2`

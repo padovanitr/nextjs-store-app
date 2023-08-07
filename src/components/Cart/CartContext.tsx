@@ -1,6 +1,6 @@
 'use client'
 import { Dispatch, ReactNode, createContext, useContext, useMemo, useReducer } from "react";
-import { CartAction, CartType, cartInitialState } from "./Cart.utils";
+import { CartAction, CartLocalStorageKey, CartType, cartInitialState } from "./Cart.utils";
 import { cartReducer } from "./CartReducer";
 
 interface CardProviderProps {
@@ -15,11 +15,11 @@ export type CartContextValue = {
 export const CartContext = createContext<CartContextValue | undefined>(undefined)
 
 export const CartProvider = ({ children }: CardProviderProps) => {
-  const localstorageCart = localStorage.getItem('storeCart')
+  const localstorageCart = localStorage.getItem(CartLocalStorageKey)
   const savedCart = localstorageCart ? JSON.parse(localstorageCart) : null
   const [cartState, dispatchCartState] = useReducer(cartReducer, savedCart || cartInitialState)
 
-  localStorage.setItem('storeCart', JSON.stringify(cartState))
+  localStorage.setItem(CartLocalStorageKey, JSON.stringify(cartState))
 
   const memoizedValue = useMemo(() => {return { cartState, dispatchCartState }}, [cartState])
 
@@ -33,7 +33,7 @@ export const CartProvider = ({ children }: CardProviderProps) => {
 export const useCart = () => {
   const cartCtx = useContext(CartContext);
   if (!cartCtx) {
-      throw new Error("Component beyond MovieContext!")
+      throw new Error("Component beyond context!")
   }
   return cartCtx;
 }

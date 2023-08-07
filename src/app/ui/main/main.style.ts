@@ -5,5 +5,16 @@ export const ShelfsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
+`
+
+export const MainContainer = styled.div`
+   width: 100vw;
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+`
+
+export const ContentWraper = styled.div`
+  display: block;
   overflow-y: auto;
 `

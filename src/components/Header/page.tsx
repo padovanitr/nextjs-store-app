@@ -38,7 +38,7 @@ export default function Header({ openNavbar, openCart }: HeaderProps) {
             height={40}
             width={40}
             src={HamburguerIcon}
-            alt="Follow us on Twitter"
+            alt={HeaderTexts.HamburguerIconAltText}
           />
         </MenuButton>
       </TitleContainer>
@@ -49,7 +49,7 @@ export default function Header({ openNavbar, openCart }: HeaderProps) {
             height={45}
             width={43}
             src={ProfileIcon}
-            alt="Follow us on Twitter"
+            alt={HeaderTexts.ProfileIconAltText}
           />
           <ProfileLabel>{HeaderTexts.LoginSignUpButtonLabel}</ProfileLabel>
         </LoginIconButton>
@@ -58,7 +58,7 @@ export default function Header({ openNavbar, openCart }: HeaderProps) {
             height={35}
             width={35}
             src={CartIcon}
-            alt="Follow us on Twitter"
+            alt={HeaderTexts.CartIconAltText}
           />
           <StyledBadge>{cartState ? cartState.length : 0}</StyledBadge>
         </IconButton>

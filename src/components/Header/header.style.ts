@@ -41,6 +41,7 @@ export const IconButton = styled.button`
   width: fit-content;
   border: none;
   cursor: pointer;
+  position: relative;
 `
 
 export const RightButtonsContainer = styled.div`
@@ -85,8 +86,8 @@ export const StyledBadge = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  top: 1.2rem;
-  right: 2.3rem;
+  top: -0.2rem;
+  right: -0.2rem;
   font-size: 0.75rem;
   font-weight: 400;
 `

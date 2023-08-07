@@ -1,5 +1,5 @@
 'use client'
-import { CartAction, cartInitialState } from "./Cart.utils";
+import { ActionTypes, CartAction, cartInitialState } from "./Cart.utils";
 
 export const cartReducer = (
   cart: typeof cartInitialState,
@@ -8,7 +8,7 @@ export const cartReducer = (
   const { productId } = action.payload
 
   switch (action.type) {
-    case "add":
+    case ActionTypes.ADD_ACTION:
       const { name, price, image } = action.payload
       const cartCopyToAdd = [...cart]
       const hasItem = cartCopyToAdd.find((item) => item.id === productId);
@@ -26,7 +26,7 @@ export const cartReducer = (
 
       return updatedCartAdded
 
-    case "decrease":
+    case ActionTypes.DECREASE_ACTION:
       const cartCopyToDecrease = [...cart]
       const itemToDecrease = cartCopyToDecrease.find((item) => item.id === productId);
 
@@ -43,7 +43,7 @@ export const cartReducer = (
 
       return updatedCart
 
-    case "remove":
+    case ActionTypes.REMOVE_ACTION:
       const cartCopyToRemove = [...cart]
       return cartCopyToRemove.filter((item) => item.id !== productId);
 

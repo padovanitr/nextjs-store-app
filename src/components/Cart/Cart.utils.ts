@@ -10,9 +10,15 @@ export type CartType = CartItemType[]
 
 export const cartInitialState = [] as CartType
 
+export enum ActionTypes {
+  ADD_ACTION = 'ADD',
+  DECREASE_ACTION = 'DECREASE',
+  REMOVE_ACTION = 'REMOVE',
+}
+
 export type CartAction =
   | {
-      type: 'add'
+      type: ActionTypes.ADD_ACTION
       payload: {
         productId: string
         name: string
@@ -21,14 +27,16 @@ export type CartAction =
       }
     }
   | {
-      type: 'decrease'
+      type: ActionTypes.DECREASE_ACTION
       payload: {
         productId: string
       }
     }
   | {
-      type: 'remove'
+      type: ActionTypes.REMOVE_ACTION
       payload: {
         productId: string
       }
     }
+
+export const CartLocalStorageKey = 'storeCart'
