@@ -8,22 +8,26 @@ import {
   ButtonsWrapper,
   CloseButton,
   ActionButton,
+  StyledText,
+  StyledNameText,
 } from "./cartItem.style";
-import ExampleImg from '../../../assets/icons/ProfileIcon.svg'
-import CloseIconBlack from '../../../assets/icons/CloseIconBlack.svg'
+import CloseIcon from '../../../assets/icons/CloseIcon.svg'
 import PlusIcon from '../../../assets/icons/PlusIcon.svg'
 import MinusIcon from '../../../assets/icons/MinusIcon.svg'
 
 interface CartItemProps {
-  imageSrc?: string
+  imageSrc: string
+  name: string
+  price: number
+  quantity: number
 }
 
-export default function CartItem({ imageSrc }: CartItemProps) {
+export default function CartItem({ imageSrc, name, price, quantity }: CartItemProps) {
   return (
     <ItemContainer>
       <ImageContainer>
         <Image 
-          src={ExampleImg}
+          src={imageSrc}
           width={80}
           height={80}
           alt="prod image"
@@ -31,18 +35,18 @@ export default function CartItem({ imageSrc }: CartItemProps) {
       </ImageContainer>
       <InfoActionContainer>
         <NameCloseWrapper>
-          <p>name product</p>
+          <StyledNameText>{name}</StyledNameText>
           <CloseButton>
             <Image
               height={13}
               width={13}
-              src={CloseIconBlack}
+              src={CloseIcon}
               alt="Follow us on Twitter"
             />
           </CloseButton>
         </NameCloseWrapper>
         <PriceActionWrapper>
-          <p>$10</p>
+          <StyledText>{price}</StyledText>
           <ButtonsWrapper>
             <ActionButton>
               <Image
@@ -52,7 +56,7 @@ export default function CartItem({ imageSrc }: CartItemProps) {
                 alt="Follow us on Twitter"
               />
             </ActionButton>
-            <p>1</p>
+            <StyledText>{quantity}</StyledText>
             <ActionButton>
               <Image
                 height={35}

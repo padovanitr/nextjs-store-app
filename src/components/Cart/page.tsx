@@ -9,6 +9,11 @@ import {
   StyledText,
   EmptyContentWrapper,
   CartContentContainer,
+  CheckoutButtonContainer,
+  CheckoutButton,
+  ItemsWrapper,
+  ClearCartContainer,
+  StyledClearCartButton,
 } from "./cart.style";
 import CloseIcon from '../../assets/icons/CloseIcon.svg'
 import CartIcon from '../../assets/icons/CartIcon.svg'
@@ -41,21 +46,34 @@ export default function Cart({ open, onClose }: CartProps) {
         {cartState.length === 0 ? (
           <EmptyCartContainer>
             <EmptyContentWrapper>
-              <Image
-                alt="cart icon"
-                height={80}
-                width={80}
-                src={CartIcon}
-              />
+              <Image alt="cart icon" height={80} width={80} src={CartIcon} />
               <StyledText>Your cart is empty</StyledText>
             </EmptyContentWrapper>
           </EmptyCartContainer>
         ) : (
           <CartContentContainer>
-            <CartItem />
+            <div>
+              <ClearCartContainer>
+                <StyledClearCartButton>limpar carrinho</StyledClearCartButton>
+              </ClearCartContainer>
+              <ItemsWrapper>
+                {cartState.map(({ id, name, image, price, quantity }) => (
+                  <CartItem
+                    key={id}
+                    name={name}
+                    imageSrc={image}
+                    price={price}
+                    quantity={quantity}
+                  />
+                ))}
+              </ItemsWrapper>
+            </div>
+            <CheckoutButtonContainer>
+              <CheckoutButton>Checkout</CheckoutButton>
+            </CheckoutButtonContainer>
           </CartContentContainer>
         )}
       </CartContainer>
     </>
-  )
+  );
 }

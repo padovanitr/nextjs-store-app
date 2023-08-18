@@ -8,4 +8,5 @@ export const storeColors = {
   mediumGray: '#F1F1F1',
   arrowTownGray: '#94806b',
   white: '#FFFFFF',
+  red: '#da291c',
 } as const

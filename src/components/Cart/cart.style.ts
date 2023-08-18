@@ -34,7 +34,7 @@ export const Backdrop = styled.div<{ $open?: boolean }>`
 `
 
 export const HeaderContent = styled.div`
-  background-color: ${storeColors.darkGrey};
+  background-color: ${storeColors.black};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -84,8 +84,57 @@ export const StyledText = styled.p`
 
 export const CartContentContainer = styled.div`
   height: 100%;
-  align-items: flex-start;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
   display: flex;
-  padding: 2rem 0.5rem;
+  flex-direction: column;
+`
+
+export const CheckoutButtonContainer = styled.div`
+  background-color: ${storeColors.darkGrey};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 0;
+`
+
+export const CheckoutButton = styled.button`
+  background-color: ${storeColors.red};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 4px;
+  width: 300px;
+  padding: 1rem;
+  font-size: 1rem;
+  color: ${storeColors.white};
+`
+
+export const ItemsWrapper = styled.div`
+  background-color: ${storeColors.darkGrey};
+  width: 100%;
+  overflow-y: auto;
+  height: 500px;
+`
+
+export const ClearCartContainer = styled.div`
+  background-color: ${storeColors.darkGrey};
+  width: 100%;
+  overflow-y: auto;
+  height: 60px;
+  border-bottom: 0.2px solid ${storeColors.white};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const StyledClearCartButton = styled.button`
+  color: ${storeColors.lightGray};
+  font-size: 1rem;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  background-color: transparent;
 `

@@ -1,8 +1,8 @@
+import { storeColors } from "@/utils/colors";
 import { styled } from "styled-components";
 
 export const ItemContainer = styled.div`
   display: flex;
-  width: 100%;
   justify-content: space-between;
   align-items: stretch;
   padding: 1rem 1rem;
@@ -56,4 +56,19 @@ export const ActionButton = styled.button`
   border: none;
   cursor: pointer;
   margin-top: 5px;
+`
+
+export const StyledText = styled.p`
+  color: ${storeColors.white};
+  font-size: 0.875rem;
+`
+
+export const StyledNameText = styled.p`
+  color: ${storeColors.white};
+  font-size: 0.875rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+  word-break: break-all;
+  white-space: nowrap;
 `
