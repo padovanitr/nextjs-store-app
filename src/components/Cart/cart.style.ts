@@ -58,3 +58,34 @@ export const IconButton = styled.button`
   border: none;
   cursor: pointer;
 `
+
+export const EmptyCartContainer = styled.div`
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+`
+
+export const EmptyContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+`
+
+export const StyledText = styled.p`
+  font-size: 1.2rem !important;
+  color: ${storeColors.darkGrey};
+  font-size: 400px;
+  padding: 0 40px;
+  margin: 0;
+`
+
+export const CartContentContainer = styled.div`
+  height: 100%;
+  align-items: flex-start;
+  justify-content: center;
+  display: flex;
+  padding: 2rem 0.5rem;
+`
