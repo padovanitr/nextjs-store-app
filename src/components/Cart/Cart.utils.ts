@@ -14,6 +14,7 @@ export enum ActionTypes {
   ADD_ACTION = 'ADD',
   DECREASE_ACTION = 'DECREASE',
   REMOVE_ACTION = 'REMOVE',
+  CLEAR_CART_ACTION = 'CLEAR_CART',
 }
 
 export type CartAction =
@@ -37,6 +38,9 @@ export type CartAction =
       payload: {
         productId: string
       }
+    }
+  | {
+      type: ActionTypes.CLEAR_CART_ACTION
     }
 
 export const CartLocalStorageKey = 'storeCart'

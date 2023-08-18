@@ -14,15 +14,50 @@ import {
 import CloseIcon from '../../../assets/icons/CloseIcon.svg'
 import PlusIcon from '../../../assets/icons/PlusIcon.svg'
 import MinusIcon from '../../../assets/icons/MinusIcon.svg'
+import { useCart } from "../CartContext";
+import { ActionTypes } from "../Cart.utils";
 
 interface CartItemProps {
   imageSrc: string
   name: string
   price: number
   quantity: number
+  productId: string
 }
 
-export default function CartItem({ imageSrc, name, price, quantity }: CartItemProps) {
+export default function CartItem({ imageSrc, name, price, quantity, productId }: CartItemProps) {
+  const { dispatchCartState } = useCart()
+
+  const addProduct = () => {
+    dispatchCartState({
+      type: ActionTypes.ADD_ACTION,
+      payload: {
+        productId: String(productId),
+        name,
+        price,
+        image: imageSrc,
+      }
+    })
+  }
+
+  const decreaseProduct = () => {
+    dispatchCartState({
+      type: ActionTypes.DECREASE_ACTION,
+      payload: {
+        productId: String(productId),
+      }
+    })
+  }
+
+  const removeProduct = () => {
+    dispatchCartState({
+      type: ActionTypes.REMOVE_ACTION,
+      payload: {
+        productId: String(productId),
+      }
+    })
+  }
+
   return (
     <ItemContainer>
       <ImageContainer>
@@ -36,7 +71,7 @@ export default function CartItem({ imageSrc, name, price, quantity }: CartItemPr
       <InfoActionContainer>
         <NameCloseWrapper>
           <StyledNameText>{name}</StyledNameText>
-          <CloseButton>
+          <CloseButton onClick={removeProduct}>
             <Image
               height={13}
               width={13}
@@ -48,7 +83,7 @@ export default function CartItem({ imageSrc, name, price, quantity }: CartItemPr
         <PriceActionWrapper>
           <StyledText>{price}</StyledText>
           <ButtonsWrapper>
-            <ActionButton>
+            <ActionButton onClick={decreaseProduct}>
               <Image
                 height={35}
                 width={35}
@@ -57,7 +92,7 @@ export default function CartItem({ imageSrc, name, price, quantity }: CartItemPr
               />
             </ActionButton>
             <StyledText>{quantity}</StyledText>
-            <ActionButton>
+            <ActionButton onClick={addProduct}>
               <Image
                 height={35}
                 width={35}

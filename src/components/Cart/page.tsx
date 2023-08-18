@@ -14,11 +14,13 @@ import {
   ItemsWrapper,
   ClearCartContainer,
   StyledClearCartButton,
+  TotalsContainer,
 } from "./cart.style";
 import CloseIcon from '../../assets/icons/CloseIcon.svg'
 import CartIcon from '../../assets/icons/CartIcon.svg'
 import { useCart } from './CartContext';
 import CartItem from './CartItem/page';
+import { ActionTypes } from './Cart.utils';
 
 interface CartProps {
   open: boolean
@@ -26,7 +28,13 @@ interface CartProps {
 }
 
 export default function Cart({ open, onClose }: CartProps) {
-  const { cartState } = useCart()
+  const { cartState, dispatchCartState } = useCart()
+
+  const clearCart = () => {
+    dispatchCartState({
+      type: ActionTypes.CLEAR_CART_ACTION,
+    })
+  }
 
   return (
     <>
@@ -52,9 +60,9 @@ export default function Cart({ open, onClose }: CartProps) {
           </EmptyCartContainer>
         ) : (
           <CartContentContainer>
-            <div>
+            <div style={{ width: '100%' }}>
               <ClearCartContainer>
-                <StyledClearCartButton>limpar carrinho</StyledClearCartButton>
+                <StyledClearCartButton onClick={clearCart}>limpar carrinho</StyledClearCartButton>
               </ClearCartContainer>
               <ItemsWrapper>
                 {cartState.map(({ id, name, image, price, quantity }) => (
@@ -64,9 +72,13 @@ export default function Cart({ open, onClose }: CartProps) {
                     imageSrc={image}
                     price={price}
                     quantity={quantity}
+                    productId={id}
                   />
                 ))}
               </ItemsWrapper>
+              <TotalsContainer>
+
+              </TotalsContainer>
             </div>
             <CheckoutButtonContainer>
               <CheckoutButton>Checkout</CheckoutButton>

@@ -138,3 +138,7 @@ export const StyledClearCartButton = styled.button`
   cursor: pointer;
   background-color: transparent;
 `
+
+export const TotalsContainer = styled.div`
+  width: 100%;
+`
