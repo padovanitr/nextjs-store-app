@@ -32,7 +32,7 @@ export interface Rating {
   count: number
 }
 
-export default function Card ({
+export default function Card({
   id,
   title,
   price,

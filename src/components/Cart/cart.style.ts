@@ -18,6 +18,7 @@ export const CartContainer = styled.div<{ $open?: boolean }>`
   display: flex;
   flex-direction: column;
   width: 99.9vw;
+  overflow-y: hidden;
 `
 
 export const Backdrop = styled.div<{ $open?: boolean }>`
@@ -117,6 +118,8 @@ export const ItemsWrapper = styled.div`
   width: 100%;
   overflow-y: auto;
   height: 500px;
+
+  max-height: 770px;
 `
 
 export const ClearCartContainer = styled.div`
@@ -128,6 +131,7 @@ export const ClearCartContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
 `
 
 export const StyledClearCartButton = styled.button`
@@ -140,5 +144,21 @@ export const StyledClearCartButton = styled.button`
 `
 
 export const TotalsContainer = styled.div`
-  width: 100%;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  justify-content: space-between;
+  align-items: flex-end;
+
+`
+
+export const TotalLabel = styled.p`
+  color: ${storeColors.black};
+  font-weight: 500;
+  font-size: 1rem;
+`
+
+export const TotalText = styled.p`
+  color: ${storeColors.darkGrey};
+  font-size: 1rem;
 `

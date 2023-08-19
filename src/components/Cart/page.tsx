@@ -15,12 +15,16 @@ import {
   ClearCartContainer,
   StyledClearCartButton,
   TotalsContainer,
+  TotalText,
+  TotalLabel,
 } from "./cart.style";
 import CloseIcon from '../../assets/icons/CloseIcon.svg'
 import CartIcon from '../../assets/icons/CartIcon.svg'
 import { useCart } from './CartContext';
 import CartItem from './CartItem/page';
 import { ActionTypes } from './Cart.utils';
+import { useMemo } from 'react';
+import formatCurrency from '@/utils/formatCurrency';
 
 interface CartProps {
   open: boolean
@@ -35,6 +39,14 @@ export default function Cart({ open, onClose }: CartProps) {
       type: ActionTypes.CLEAR_CART_ACTION,
     })
   }
+
+  const totalOrder = useMemo(() => {
+    return cartState.reduce((acc, curr) => {
+      const currTotal = curr.price * curr.quantity
+  
+      return acc + currTotal
+    }, 0)
+  }, [cartState])
 
   return (
     <>
@@ -60,7 +72,7 @@ export default function Cart({ open, onClose }: CartProps) {
           </EmptyCartContainer>
         ) : (
           <CartContentContainer>
-            <div style={{ width: '100%' }}>
+            <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
               <ClearCartContainer>
                 <StyledClearCartButton onClick={clearCart}>limpar carrinho</StyledClearCartButton>
               </ClearCartContainer>
@@ -77,7 +89,8 @@ export default function Cart({ open, onClose }: CartProps) {
                 ))}
               </ItemsWrapper>
               <TotalsContainer>
-
+                <TotalLabel>Total</TotalLabel>
+                <TotalText>{formatCurrency(totalOrder)}</TotalText>
               </TotalsContainer>
             </div>
             <CheckoutButtonContainer>
